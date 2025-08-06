@@ -1,13 +1,12 @@
 <?php
-$host = "switchyard.proxy.rlwy.net";
-$port = 24810;
-$usuario = "root";
-$password = "UVqCsOESrLbnTVtcICapeuyEqcwwrMEw";  // tu contraseña real
-$basededatos = "railway";
+$host = getenv("DB_HOST");
+$port = getenv("DB_PORT");
+$usuario = getenv("DB_USER");
+$password = getenv("DB_PASS");
+$basededatos = getenv("DB_NAME");
 
 $conn = new mysqli($host, $usuario, $password, $basededatos, $port);
 
-// Verifica conexión
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
