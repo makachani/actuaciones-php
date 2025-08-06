@@ -1,11 +1,13 @@
-# Usa PHP con Apache ya configurado
 FROM php:8.2-apache
 
-# Copia todos los archivos a la carpeta web del servidor
+# Instala la extensión mysqli
+RUN docker-php-ext-install mysqli
+
+# Copia tu app al contenedor
 COPY . /var/www/html/
 
-# Da permisos correctos (opcional)
+# Cambia permisos
 RUN chown -R www-data:www-data /var/www/html
 
-# Expone el puerto 80
-EXPOSE 80
+# Habilita mod_rewrite de Apache
+RUN a2enmod rewrite
