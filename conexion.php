@@ -1,13 +1,13 @@
 <?php
-$host = getenv("DB_HOST");
-$port = getenv("DB_PORT");
-$usuario = getenv("DB_USER");
-$password = getenv("DB_PASS");
-$basededatos = getenv("DB_NAME");
+$host = "switchyard.proxy.rlwy.net";
+$port = 24810;
+$user = "root";
+$password = "UVqCsOESrLbnTVtcIcapeuyEqcwwrMeW";  // pon aquí tu contraseña real de Railway
+$database = "railway";
 
-$conn = new mysqli($host, $usuario, $password, $basededatos, $port);
+$conn = new mysqli($host, $user, $password, $database, $port);
 
 if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
+    die("Conexión fallida: " . $conn->connect_error);
 }
 ?>
